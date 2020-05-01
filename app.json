@@ -1,17 +1,18 @@
 {
-  "name": "Formigator",
-  "displayName": "Formigator",
   "expo": {
-    "name": "Formigator",
-    "slug": "Formigator",
+    "name": "FORMIGATOR 2000",
+    "icon": "",
     "version": "1.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "slug": "formigator",
+    "ios": {
+      "bundleIdentifier": "com.manbbo.formigator",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.manbbo.formigator",
+      "versionCode": 1
+    },
+    "description": "U M  A P P  P A R A  F A L A R  C O M O  U M A  F O R M I G A",
+    "githubUrl": "https://github.com/manbbo/formigator"
   }
 }
