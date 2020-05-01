@@ -22,13 +22,21 @@ export default class GenerateText extends Component {
     
       this.state = {
          text: '',
-         clipboard: ''
+         clipboard: '',
+         finalText:''
       };
     };
     
     writeToClipboard = async () => {
-        await Clipboard.setString(this.state.text);
-        alert('T E X T O   C O P I A D O!');
+        let final = ''
+        if (this.state.text != "") {
+            for (let t of this.state.text) {
+                final = final.concat(t, " ").toUpperCase()
+            }
+
+            this.setState({finalText: final.toUpperCase()})
+            await Clipboard.setString(final);
+        }
       };
 
       render() {
@@ -36,15 +44,15 @@ export default class GenerateText extends Component {
                 <View style={{alignContent:'center', paddingTop: 150, paddingStart: 30}}>
                     <View style={{alignContent:'center'}}>
                     <Text>B O T A   O   T E X T O   E   V E J A   A   M A G I C A</Text>
-                    <ConvertedTextInput value ={this.state.text.toLowerCase()} onChangeText ={(text) => this.setState({text: text + " "})} placeholder ={'T e x t o'} />
+                    <ConvertedTextInput value ={this.state.text.toLowerCase()} onChangeText ={(text) => this.setState({text})} placeholder ={'T e x t o'}/>
                     <Text> </Text>
                     <Text>A   M A G I C A:</Text>
-                    <ConvertedTextInput editable ={false} value ={this.state.text.toUpperCase()} onChangeText ={(text) => this.setState({text: text + " "})} placeholder ={'T E X T O'} />
+                    <ConvertedTextInput editable ={false} value ={this.state.finalText} placeholder ={'T E X T O'} />
                     </View>
                 <View style={{width: 300}}>
                     <Button
                     onPress={this.writeToClipboard}
-                    title="Write to Clipboard"
+                    title="G E R A R   E   C O P I A R"
                     />
                 </View>
             </View>   

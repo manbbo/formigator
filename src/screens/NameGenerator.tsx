@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
+import { View, TextInput, Button, Text, Clipboard } from 'react-native';
 import { Header } from 'react-native/Libraries/NewAppScreen';
 
 function GetName(props: any) {
     return(
         <TextInput 
             {...props}
-            autoFocus={true}
             multiline={false}
             maxLength={30}
             autoCapitalize={'characters'}
@@ -20,7 +19,6 @@ function GetLastPhoneDigit(props: any) {
     return(<TextInput 
         {...props}
         multiline={false}
-        autoFocus={true}
         maxLength={1}
         keyboardType={'numeric'}
         style={{height: 40, borderColor: 'gray', borderWidth: 1, width: 300}}
@@ -31,7 +29,6 @@ function GetLastPhoneDigit(props: any) {
 function GetBornDay(props: any) {
     return(<TextInput 
         {...props}
-        autoFocus={true}
         multiline={false}
         maxLength={2}
         keyboardType={'numeric'}
@@ -43,7 +40,6 @@ function GetBornDay(props: any) {
 function GetFirstLtrSurName(props: any) {
     return(<TextInput 
         {...props}
-        autoFocus={true}
         multiline={false}
         maxLength={1}
         style={{height: 40, borderColor: 'gray', borderWidth: 1, width: 300}}
@@ -63,6 +59,10 @@ function calculate(name: String, sur: String, phone: String, day: String) {
 function ShowName(content: boolean) {
     content = true
     //return 
+}
+
+function writeToClipboard (text: String) {
+    Clipboard.setString(text);
 }
 
 export default function NameGenerator(this: any) {
@@ -94,9 +94,10 @@ export default function NameGenerator(this: any) {
                     />
                 </View>
                 <View style={{flexDirection: 'row', alignContent:'center', paddingTop: 30, paddingStart:12}}>
-                    <Text style={{fontSize: 30}}>Seu nome: </Text>
-                    <TextInput style={{fontSize: 30, borderBottomWidth:.5}}
-                    autoFocus={true} selectTextOnFocus={true}>{calculate(text, sur, phone, day)}</TextInput>
+                    <Text style={{fontSize: 20}}>Seu nome: </Text>
+                    <TextInput style={{fontSize: 20, borderBottomWidth:.5, width: 100}}
+                    editable={false} selectTextOnFocus={true}>{calculate(text, sur, phone, day)}</TextInput>
+                    <Button onPress={writeToClipboard(calculate(text, sur, phone, day))} title="C O P I A R"/>
                 </View>
                 
             </View>

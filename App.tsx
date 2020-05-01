@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import NameGenerator from './src/screens/NameGenerator'
-import TextGenerator from './src/screens/TextGenerator'
+import GenerateText from './src/screens/TextGenerator'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -33,7 +33,7 @@ export default function App() {
           inactiveTintColor: 'gray',
         }}>
         <tab.Screen name ='C R I A R    N O M E' component ={NameGenerator}/>
-        <tab.Screen name = 'F A L A R' component = {TextGenerator}/>
+        <tab.Screen name = 'F A L A R' component = {GenerateText}/>
       </tab.Navigator>
     </NavigationContainer>
   );
