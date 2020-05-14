@@ -70,7 +70,6 @@ export default function NameGenerator(this: any) {
     const [sur, onChangeSur] = React.useState('')
     const [phone, onChangePhone] = React.useState('')
     const [day, onChangeDay] = React.useState('')
-    let [content] = React.useState('')
 
         return (
             <View style={{alignContent:'center', paddingTop: 150, paddingStart: 30}}>
@@ -96,7 +95,7 @@ export default function NameGenerator(this: any) {
                 <View style={{flexDirection: 'row', alignContent:'center', paddingTop: 30, paddingStart:12}}>
                     <Text style={{fontSize: 20}}>Seu nome: </Text>
                     <TextInput style={{fontSize: 20, borderBottomWidth:.5, width: 100}}
-                    editable={false} selectTextOnFocus={true}>{calculate(text, sur, phone, day)}</TextInput>
+                    editable={false} selectTextOnFocus={true}>{calculate(text, sur, phone, day)}</TextInput> 
                     <Button onPress={writeToClipboard(calculate(text, sur, phone, day))} title="C O P I A R"/>
                 </View>
                 
