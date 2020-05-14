@@ -22,7 +22,6 @@ export default class GenerateText extends Component {
     
       this.state = {
          text: '',
-         clipboard: '',
          finalText:''
       };
     };
@@ -60,17 +59,4 @@ export default class GenerateText extends Component {
       }
     }
 
-function TextGenerator () {
-    const [text, onChangeText] = React.useState('')
-        return (
-            <View style={{alignContent:'center', paddingTop: 150, paddingStart: 30}}>
-                <View style={{alignContent:'center'}}>
-                    <Text>B O T A   O   T E X T O   E   V E J A   A   M A G I C A</Text>
-                    <ConvertedTextInput value ={text.toUpperCase()} onChangeText ={val => onChangeText(val + " ")} placeholder ={'T E X T O'} />
-                </View>
-                <View style={{width: 300}}>
-                
-                </View>
-            </View>
-        )
-}
+    
