@@ -6,7 +6,7 @@ Esse app para android foi feito utilizando o React Native, e componentes como Re
 
 Feito para a comunidade do facebook ["Grupo onde fingimos ser formigas em uma colônia"](https://www.facebook.com/groups/formigasnacolonia) para poder criar seu nome de formiga e poder falar como formiga. Tudo num App só.
 
-# Como utilizar:
+## Como utilizar:
 
 Dê um git pull ou baixe o arquivo para uma pasta do seu PC. 
 Logo depois, entre no aplicativo e dê um "npm install". Ele deverá baixar todas as dependências necessárias para editar o código corretamente.
