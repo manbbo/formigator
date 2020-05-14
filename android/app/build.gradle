@@ -132,7 +132,7 @@ android {
 
     defaultConfig {
         applicationId "com.formigator"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -156,6 +156,16 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            manifestPlaceholders = [permissionName: "android.permission.SYSTEM_ALERT_WINDOW", permissionName: "android.permission.INTERNET"
+            , permissionName: "android.permission.MANAGE_DOCUMENTS", permissionName: "android.permission.READ_INTERNAL_STORAGE"
+            , permissionName: "android.permission.READ_PHONE_STATE", permissionName: "android.permission.USE_FINGERPRINT"
+            , permissionName: "android.permission.VIBRATE", permissionName: "android.permission.MODIFY_AUDIO_SETTINGS", 
+            permissionName: "android.permission.ACCESS_FINE_LOCATION",
+            permissionName: "android.permission.ACCESS_COARSE_LOCATION", 
+            permissionName: "android.permission.CAMERA", permissionName: "android.permission.READ_CONTACTS",
+            permissionName: "android.permission.SYSTEM_ALERT_WINDOW", permissionName: "android.permission.READ_CALENDAR",
+            permissionName: "android.permission.WRITE_CALENDAR", permissionName: "android.permission.READ_EXTERNAL_STORAGE",
+            permissionName: "android.permission.RECORD_AUDIO", permissionName: "android.permission.WRITE_EXTERNAL_STORAGE", permissionName: "android.permission.WRITE_SETTINGS"]
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -163,6 +173,16 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            manifestPlaceholders = [permissionName: "android.permission.SYSTEM_ALERT_WINDOW", permissionName: "android.permission.INTERNET"
+            , permissionName: "android.permission.MANAGE_DOCUMENTS", permissionName: "android.permission.READ_INTERNAL_STORAGE"
+            , permissionName: "android.permission.READ_PHONE_STATE", permissionName: "android.permission.USE_FINGERPRINT"
+            , permissionName: "android.permission.VIBRATE", permissionName: "android.permission.MODIFY_AUDIO_SETTINGS", 
+            permissionName: "android.permission.ACCESS_FINE_LOCATION",
+            permissionName: "android.permission.ACCESS_COARSE_LOCATION", 
+            permissionName: "android.permission.CAMERA", permissionName: "android.permission.READ_CONTACTS",
+            permissionName: "android.permission.SYSTEM_ALERT_WINDOW", permissionName: "android.permission.READ_CALENDAR",
+            permissionName: "android.permission.WRITE_CALENDAR", permissionName: "android.permission.READ_EXTERNAL_STORAGE",
+            permissionName: "android.permission.RECORD_AUDIO", permissionName: "android.permission.WRITE_EXTERNAL_STORAGE", permissionName: "android.permission.WRITE_SETTINGS"]
         }
     }
     // applicationVariants are e.g. debug, release
