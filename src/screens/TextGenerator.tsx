@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View, TextInput, Button, Clipboard } from 'react-native'
+import { Text, View, TextInput, Button, Clipboard, Share } from 'react-native'
+import { ShareDialog } from 'react-native-fbsdk'
 
 function ConvertedTextInput(props:any) {
     return (<TextInput 
@@ -26,33 +27,62 @@ export default class GenerateText extends Component {
       };
     };
     
-    writeToClipboard = async () => {
-        let final = ''
-        if (this.state.text != "") {
-            for (let t of this.state.text) {
-                final = final.concat(t, " ").toUpperCase()
-            }
-
-            this.setState({finalText: final.toUpperCase()})
-            await Clipboard.setString(final);
+    share = async () => {
+        if (this.state.finalText != '') {
+            const content = {
+                contentType: 'link',
+                contentUrl: "https://www.facebook.com/groups/formigasnacolonia",
+                contentDescription: this.state.finalText,
+            };
+                    ShareDialog.canShow(content).then(
+                      function(canShow) {
+                        if (canShow) {
+                          return ShareDialog.show(content);
+                        }
+                      }
+                    ).then(
+                      function(result) {
+                        if (result.isCancelled) {
+                          console.log('CANCELADO');
+                        } else {
+                          console.log('SUCESSO, ID: '
+                            + result.postId);
+                        }
+                      },
+                      function(error) {
+                        console.log('ERRO AO COMPARTILHAR: ' + error);
+                      }
+                    );
         }
+    }
+
+    writeToClipboard = async () => {
+        if (this.state.text != "") {
+            await this.setState({finalText: this.state.text.toUpperCase()})
+        }
+        
+        await Clipboard.setString(this.state.finalText);
       };
 
       render() {
         return (
                 <View style={{alignContent:'center', paddingTop: 150, paddingStart: 30}}>
                     <View style={{alignContent:'center'}}>
-                    <Text>B O T A   O   T E X T O   E   V E J A   A   M A G I C A</Text>
-                    <ConvertedTextInput value ={this.state.text.toLowerCase()} onChangeText ={(text) => this.setState({text})} placeholder ={'T e x t o'}/>
+                    <Text>BOTE O TEXTO E VEJA A MAGICA</Text>
+                    <ConvertedTextInput value ={this.state.text} onChangeText ={(text) => this.setState({text})} placeholder ={'Texto'}/>
                     <Text> </Text>
-                    <Text>A   M A G I C A:</Text>
-                    <ConvertedTextInput editable ={false} value ={this.state.finalText} placeholder ={'T E X T O'} />
+                    <Text>A MAGICA:</Text>
+                    <ConvertedTextInput editable ={false} value ={this.state.finalText} placeholder ={'TEXTO'} />
                     </View>
                 <View style={{width: 300}}>
                     <Button
-                    onPress={this.writeToClipboard}
-                    title="G E R A R   E   C O P I A R"
-                    />
+                        onPress={this.writeToClipboard}
+                        title="GERAR E COPIAR"
+                        />
+                    <Button
+                        onPress={this.share}
+                        title="COMPARTILHAR"
+                        />
                 </View>
             </View>   
         );

@@ -93,10 +93,10 @@ export default function NameGenerator(this: any) {
                     />
                 </View>
                 <View style={{flexDirection: 'row', alignContent:'center', paddingTop: 30, paddingStart:12}}>
-                    <Text style={{fontSize: 20}}>Seu nome: </Text>
+                    <Text style={{fontSize: 20}}>SEU NOME: </Text>
                     <TextInput style={{fontSize: 20, borderBottomWidth:.5, width: 100}}
                     editable={false} selectTextOnFocus={true}>{calculate(text, sur, phone, day)}</TextInput> 
-                    <Button onPress={writeToClipboard(calculate(text, sur, phone, day))} title="C O P I A R"/>
+                    <Button onPress={writeToClipboard(calculate(text, sur, phone, day))} title="COPIAR"/>
                 </View>
                 
             </View>

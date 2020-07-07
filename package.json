@@ -20,6 +20,7 @@
     "react-native": "^0.61.4",
     "react-native-axios": "^0.17.1",
     "react-native-elements": "^1.0.0-beta5",
+    "react-native-fbsdk": "^2.0.0",
     "react-native-flex-image": "^1.2.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-navigation": "^6.5.0",
